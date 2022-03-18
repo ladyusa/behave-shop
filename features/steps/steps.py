@@ -7,9 +7,9 @@ def the_store_is_ready_to_service_customers(context):
     context.catalog = ProductCatalog()
     context.order = Order()
 
-@given('a product {name} with price {price:f} exists')
-def a_product_with_price_exists(context, name, price):
-    context.catalog.add_product(name, price)
+@given('a product {name} with price {price:f} and stock of {stock:d} exists')
+def a_product_exists(context, name, price, stock):
+    context.catalog.add_product(name, price, stock)
 
 @when('I buy {name} with quantity {quantity:d}')
 def i_buy_with_quantity(context, name, quantity):
